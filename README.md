@@ -3,7 +3,7 @@
 ## Study with <https://docker-curriculum.com/#docker-network>
 
 docker run `image name:tag` `command`\
-ex) `docker run ubuntu:18.04 bash`
+ex) `docker run ubuntu:18.04 bash`\
 가지고있는 이미지를 기반으로 container를 run. 만약 이미지가 dockerhub에 있는 공식 이미지이고 pull 되어있지 않다면 자동으로 pull도 함께 됨.
 
 - -it: interactive tty가 컨테이너에서 실행되고 컨테이너가 꺼지지 않는다.
@@ -16,7 +16,7 @@ ex) `docker run ubuntu:18.04 bash`
 - --net `network_name`: 네트워크를 기본 브릿지 네트워크 말고 지정 네트워크를 사용
 
 docker build `Dockerfile path`\
-ex) `docker build .`
+ex) `docker build .`\
 Dockerfile로 이미지를 빌드.
 
 - -t `image name:tag`: 빌드할 이미지의 이름. 지정하지 않을시 랜덤으로 지정된다.
