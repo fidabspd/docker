@@ -1,6 +1,6 @@
 # Docker 정리
 
-## Study with <https://docker-curriculum.com/#docker-network>
+## Study with <https://docker-curriculum.com/>
 
 `docker run <image name:tag> <command>`\
 ex) `docker run ubuntu:18.04 bash`\
