@@ -10,7 +10,7 @@ RUN apt-get install python3.6 python3-pip -y
 COPY ./source/requirements.txt ./home/
 
 # install packages
-# RUN pip3 install -r ./home/requirements.txt
+RUN pip3 install -r ./home/requirements.txt
 # /root/.jupyter/jupyter_notebook_config.py 파일 생성
 RUN jupyter notebook --generate-config
 # 브라우저을 열지않게 설정
