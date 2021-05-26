@@ -8,12 +8,12 @@ RUN apt-get update -y
 RUN pip3 install jupyter
 # make jupyter notebook config file
 RUN jupyter notebook --generate-config
-# set default open_brower option as False
+# set open_brower option as False
 RUN echo "c.NotebookApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py
 # set passwd (now: 1234)
 RUN echo "c.NotebookApp.password = u'sha1:957c927e6ad8:2b788632b41c54be38f73da328b26b5d0957730d'" >> /root/.jupyter/jupyter_notebook_config.py
 
-# launchy jupyter notebook at /home/
+# launch jupyter notebook at container home dir
 WORKDIR /home/
 ENTRYPOINT jupyter notebook --allow-root --ip=0.0.0.0 --port=8888
 
