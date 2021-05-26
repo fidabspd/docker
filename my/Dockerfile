@@ -12,6 +12,8 @@ RUN jupyter notebook --generate-config
 RUN echo "c.NotebookApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py
 # set passwd (now: 1234)
 RUN echo "c.NotebookApp.password = u'sha1:957c927e6ad8:2b788632b41c54be38f73da328b26b5d0957730d'" >> /root/.jupyter/jupyter_notebook_config.py
+# set default width 100%
+RUN echo ".container { width:100% !important; }" >> /root/.jupyter/custom/custom.css
 
 # launch jupyter notebook at container home dir
 WORKDIR /home/
