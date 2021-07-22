@@ -21,7 +21,7 @@ Dockerfile로 이미지를 빌드.
 
 다양한 명령어들
 
-```powershell
+```sh
 docker pull <image_name:tag>  # 이미지 pull
 docker container prune  # 멈춰있는 컨테이너 다 지우기 (docker ~~ prune 하면 안쓰는 ~~ 모두 지운다)
 docker rm $(docker ps -a -q -f status=exited)  # 모든 컨테이너 다 지우기  -a: 모든 컨테이너, -q: 컨테이너 ID만 리턴
@@ -59,3 +59,22 @@ apt는 우분투 기반\
 /tmp       : 임시 저장 디렉토리. 일반적으로 모든 사용자들에게 열려 있음\
 /usr       : 주로 새로 설치되는 프로그램들이 저장된다. '명령어' 보다는 '프로그램'이라고 부르는게 더 익숙한 놈들이 저장된다. 윈도우의 Program Files같은 폴더\
 /var        : 시스템 로그, 스풀링 파일 들이 저장된다. 메일 서버로 운영될 경우 메일이 여기 저장된다
+
+
+### 사용예시
+``` sh
+### To build image
+docker build -f {path/dockerfile_name} -t {image_name:tag} {Dockerfile_location}
+# Example: 
+docker build -f ./test_image:0.0.dockerfile -t test_image:0.0 .
+
+### To run(make & start) container by image
+docker run --name {container_name} -p {local_port}:8888 -v {local_dir_path}:{container_dir_path} -it {image_name}
+# Example: 
+docker run --name test_container -p 8887:8888 -v ~/test_folder/:/home/ --gpus all -it test_image:0.0
+
+### To start container
+docker start {container_name}
+# Example: 
+docker start test_container
+```
