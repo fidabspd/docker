@@ -1,7 +1,5 @@
 # Docker 정리
 
-## Study with <https://docker-curriculum.com/>
-
 `docker run <image_name:tag> <command>`\
 ex) `docker run ubuntu:18.04 bash`\
 가지고있는 이미지를 기반으로 container를 run. 만약 이미지가 dockerhub에 있는 공식 이미지이고 pull 되어있지 않다면 자동으로 pull도 함께 됨.
