@@ -1,3 +1,5 @@
+# ver: 0.1
+
 # base image
 FROM tensorflow/tensorflow:2.5.0-gpu
 
@@ -23,14 +25,3 @@ RUN echo ".container { width:100% !important; }" >> /root/.jupyter/custom/custom
 # launch jupyter notebook
 WORKDIR /home/
 ENTRYPOINT jupyter notebook --allow-root --ip=0.0.0.0 --port=8888
-
-
-
-# To build image
-# docker build -f {path/dockerfile_name} -t {image_name} {Dockerfile_location}
-# Example: docker build -f ./tensorflow-gpu.dockerfile -t test_image:0.0 .
-
-
-# To run container by image
-# docker run --name {container_name} -p {local_port}:8888 -v {local_dir_path}:{container_dir_path} -it {image_name}
-# Example: docker run --name test_container -p 8889:8888 -v ~/Desktop/test_repo/:/home/ --gpus all -it test_image:0.0
