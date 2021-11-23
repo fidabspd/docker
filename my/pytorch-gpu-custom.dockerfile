@@ -7,7 +7,7 @@ FROM pytorch/pytorch:1.9.0-cuda11.1-cudnn8-runtime
 RUN apt-get update -y
 
 # install packages
-COPY ./requirements.txt /home/
+COPY ./pytorch-gpu-custom_requirements.txt /home/
 RUN pip3 install --upgrade pip
 RUN pip3 install -r /home/requirements.txt
 RUN rm -f /home/requirements.txt
