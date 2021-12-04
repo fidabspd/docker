@@ -3,14 +3,17 @@
 # base image
 FROM pytorch/pytorch:1.9.0-cuda11.1-cudnn8-runtime
 
-# update package list
+# to use cv2
 RUN apt-get update -y
+RUN apt-get install libgl1-mesa-glx -y
+RUN apt-get update -y
+RUN apt-get install libgtk2.0-dev -y
 
 # install packages
 COPY ./pytorch-gpu-custom_requirements.txt /home/
 RUN pip3 install --upgrade pip
-RUN pip3 install -r /home/requirements.txt
-RUN rm -f /home/requirements.txt
+RUN pip3 install -r /home/pytorch-gpu-custom_requirements.txt
+RUN rm -f /home/pytorch-gpu-custom_requirements.txt
 
 # make jupyter notebook config file
 RUN jupyter notebook --generate-config
