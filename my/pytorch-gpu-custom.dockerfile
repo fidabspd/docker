@@ -1,13 +1,12 @@
-# ver: 0.0
+# ver: 1.0
 
 # base image
-FROM pytorch/pytorch:1.9.0-cuda11.1-cudnn8-runtime
+FROM pytorch/pytorch:1.9.1-cuda11.1-cudnn8-runtime
 
-# to use cv2
 RUN apt-get update -y
-RUN apt-get install libgl1-mesa-glx -y
-RUN apt-get update -y
-RUN apt-get install libgtk2.0-dev -y
+
+# to use cv2 and dlib
+RUN apt-get install cmake libgl1-mesa-glx libgtk2.0-dev -y
 
 # install packages
 COPY ./pytorch-gpu-custom_requirements.txt /home/
