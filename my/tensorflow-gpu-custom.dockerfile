@@ -3,12 +3,17 @@
 # base image
 FROM tensorflow/tensorflow:2.8.0-gpu
 
-# update package list
-RUN apt-get update -y
+RUN apt update -y
+
+# install git
+RUN apt install git -y
+
+# to use cv2 and dlib
+RUN apt install cmake libgl1-mesa-glx libgtk2.0-dev -y
 
 # install packages
-COPY ./tensorflow-gpu-custom_requirements.txt /home/
 RUN pip3 install --upgrade pip
+COPY ./tensorflow-gpu-custom_requirements.txt /home/
 RUN pip3 install -r /home/tensorflow-gpu-custom_requirements.txt
 RUN rm -f /home/tensorflow-gpu-custom_requirements.txt
 

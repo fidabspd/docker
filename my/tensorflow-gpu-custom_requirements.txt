@@ -1,1 +1,15 @@
+albumentations
+dlib
+imageio
+imutils
+joblib
 jupyter
+matplotlib
+mediapipe
+moviepy
+numpy
+opencv-python
+pandas
+sklearn
+timm
+xgboost
