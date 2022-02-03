@@ -1,16 +1,16 @@
-# ver: 0.1
+# ver: 1.0
 
 # base image
-FROM tensorflow/tensorflow:2.5.0-gpu
+FROM tensorflow/tensorflow:2.8.0-gpu
 
 # update package list
 RUN apt-get update -y
 
 # install packages
-COPY ./requirements.txt /home/
+COPY ./tensorflow-gpu-custom_requirements.txt /home/
 RUN pip3 install --upgrade pip
-RUN pip3 install -r /home/requirements.txt
-RUN rm -f /home/requirements.txt
+RUN pip3 install -r /home/tensorflow-gpu-custom_requirements.txt
+RUN rm -f /home/tensorflow-gpu-custom_requirements.txt
 
 # make jupyter notebook config file
 RUN jupyter notebook --generate-config
