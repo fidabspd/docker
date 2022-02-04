@@ -11,5 +11,7 @@ numpy
 opencv-python
 pandas
 sklearn
+tensorflow-addons
+tensorflow-probability
 timm
 xgboost
