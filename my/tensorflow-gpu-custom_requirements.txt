@@ -10,6 +10,7 @@ moviepy
 numpy
 opencv-python
 pandas
+seaborn
 sklearn
 tensorflow-addons
 tensorflow-probability
