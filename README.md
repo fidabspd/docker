@@ -78,3 +78,15 @@ docker start {container_name}
 # Example: 
 docker start test_container
 ```
+
+#### Docker에서 카메라 및 오디오 사용
+
+**예시**
+
+```sh
+docker run -p 8886:8888 -p 6004:6006 --gpus all --privileged --name dev_torch -it -v /dev/video0:/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v /dev/snd:/dev/snd -e="QT_X11_NO_MITSHM=1" -v ~/repo/:/home/ pytorch-gpu-custom:1.1
+```
+
+```sh
+xhost +local:root
+```
